@@ -35,13 +35,19 @@ if (!isNaN(inputValue)) {
 
   
    // Check if "Yearly" radio buttons are selected, then divide values by 12
-   if (document.getElementById('inlineRadio2').checked) { // Yearly performance
+
+   // Yearly performance
+   if (document.getElementById('inlineRadio2').checked) { 
        perfomance = perfomance / 12;
    }
-   if (document.getElementById('inlineRadio4').checked) { // Yearly administration
+
+   // Yearly administration
+   if (document.getElementById('inlineRadio4').checked) { 
        administration = administration / 12;
    }
-   if (document.getElementById('inlineRadio6').checked) { // Yearly inflation
+
+   // Yearly inflation
+   if (document.getElementById('inlineRadio6').checked) { 
        inflation1 = inflation1 / 12;
    }
 
@@ -86,9 +92,8 @@ if (!isNaN(inputValue)) {
       totalAdminCost += adminCost;
       totalInflation += inflation;
 
-      // Create a new row for the first table
-      var newRow = document.createElement("tr");
-      // ... (Your code for the first table row)
+
+
       // Create a new row for the first table
 var newRow = document.createElement("tr");
 

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+        crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+   
+<div class="container">
+    <div class="row pt-5 pb-5">
+        <div class="col-12 mx-auto pt-5" style="background-color: white;">
+            <div class="head-main">
+              <div class="form-head">
+                <h1>Yield Calculator</h1>
+                <p>Yield Calculator</p>
+
+            </div>
+            <div class="upcoming-icon">
+                <i class="fa-solid fa-heart" ></i>
+            
+                </div>  
+            </div>
+            
+            <div class="row">
+                <div class="col-12 mx-auto p-5">
+<form class="row g-3 pt-5 form-main">
+                <div class="col-md-6">
+                    <label class="form-label">Periods (months):</label>
+                    <input type="number" class="form-control input-bg" id="months" placeholder="12">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Initial amount ($):</label>
+                    <input type="text" class="form-control input-bg" id="initial-amount" placeholder="1,000.00" onblur="formatValue() ">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Monthly Contribution ($):</label>
+                    <input type="number" class="form-control input-bg" id="contribution" placeholder="100" onblur="formatValue1() ">
+                </div>
+                <div class="col-md-6 mt-5" >
+ <div class="form-check ">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                    <label class="form-check-label" for="flexCheckIndeterminate">
+                        Correct contribution for inflation 
+                    </label>
+                  </div>
+                </div>
+
+               
+
+                <div class="col-md-6">
+                    <label class="form-label">Performance (%):</label>
+                    <input type="number" class="form-control input-bg" id="perfomance" placeholder="6.000">
+                </div>
+
+<div class="col-md-6 mt-5">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="performanceFrequency" id="inlineRadio1" value="option1" checked>
+        <label class="form-check-label" for="inlineRadio1" >Monthly </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="performanceFrequency" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">Yearly</label>
+      </div>
+
+</div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Administration (%):</label>
+                    <input type="number" class="form-control input-bg" id="administration" placeholder="8.000">
+                </div>
+                <div class="col-md-6 mt-5">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="administrationFrequency" id="inlineRadio3" value="option3" checked>
+                        <label class="form-check-label" for="inlineRadio3">Monthly </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="administrationFrequency" id="inlineRadio4" value="option4">
+                        <label class="form-check-label" for="inlineRadio4">Yearly</label>
+                      </div>
+                
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Inflation (%):</label>
+                    <input type="number" class="form-control input-bg" id="inflation" placeholder="5.000">
+                </div>
+                <div class="col-md-6  mt-5">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inflationFrequency" id="inlineRadio5" value="option5" checked>
+                        <label class="form-check-label" for="inlineRadio5">Monthly </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inflationFrequency" id="inlineRadio6" value="option6">
+                        <label class="form-check-label" for="inlineRadio6">Yearly</label>
+                      </div>
+                
+                </div>
+
+                
+
+             
+            </form>
+<div class="col-12 btn-main pt-5 pb-5">
+                    <button type="button" class="form-btn" onclick="calculate()">Calculate</button>
+                </div>
+                <div class="table-responsive">
+ <table class="table " id="result-table" style="display: none;">
+                <thead>
+                  <tr >
+                    
+                      <th scope="col">Months</th>
+                    <th scope="col">Initial value ($)</th>
+                    <th scope="col">Yield ($)   <span id="hyield"></span>%/month</th>
+                    <th scope="col">Administration ($)   <span id="hadmin"></span>%/month</th>
+                    <th scope="col">Inflation ($)   <span id="hinflation"></span>%/month</th>
+                    <th scope="col">Contribution ($)</th>  
+                    
+                    
+                    <th scope="col" class="final-row">Final value ($)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+
+
+              <table class="table" id="results-table" style="display: none;">
+                <thead>
+                 
+                    <th scope="col" >Total in
+                        <span id="mon"></span> months</th>
+                    <th >Accumulated
+                        income($)
+                        <span id="totalyield"></span>
+                        </th>
+                    <th scope="col">Accumulated
+                        administration($)
+                        <span id="totaladmin"></span>
+                        </th>
+                    <th scope="col">Accumulated
+                        inflation($)
+                        <span id="totalinflation"></span>
+                        </th>
+                    <th scope="col">Accumulated
+                        contributions($)
+                        <span id="totalcontribution"></span>
+                        </th>
+                    <th scope="col">Accumulated
+                        total *($)
+                        <span id="totalvalue"></span>
+                        </th>
+              
+                 
+                </thead>
+                <tbody style="display: none;">
+                </tbody>
+              </table>
+                </div>
+           
+
+              
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script src="/script.js"></script>
+</body>
+</html>

@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 function calculate() {
   var months = parseFloat(document.getElementById('months').value);
   document.getElementById('mon').innerHTML = months;
@@ -48,27 +55,7 @@ if (!isNaN(inputValue)) {
 
 
 
-//         // Get the checkbox element by its ID
-//  var checkbox = document.getElementById("flexCheckIndeterminate");
 
-// // Check if the checkbox is checked
-// if (checkbox.checked) {
-//   // Get the value of the checkbox when it's checked
-// //   const checkboxValue = checkbox.value;
-// //   const inf=  parseFloat(document.getElementById("inflacao").value)
-//  if(i<=1){
-//       var new_monthly=contribution*(1+0);
-//      console.log(new_monthly);
-//  }
-//  else{
-//   var new_monthly=contribution*(1+inflation1);
-//  }
-
-// //   alert("Checkbox value: " + checkboxValue);
-// } else {
-//   // Handle the case when the checkbox is not checked (optional)
-//      var new_monthly = parseFloat(document.getElementById("contribution").value.replace(/,/g, ''));
-// }
 
   // Get a reference to the table bodies
   var tableBody = document.querySelector("#result-table tbody");
